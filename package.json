@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/kalinemaciel/projetoSquad2#readme",
   "devDependencies": {
-    "cypress": "^8.7.0"
+    "ajv": "^8.6.3",
+    "cypress": "^8.7.0",
+    "faker": "^5.5.3"
   }
 }
