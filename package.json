@@ -13,7 +13,7 @@
     "url": "git+https://github.com/kalinemaciel/projetoSquad2.git"
   },
   "keywords": [],
-  "author": "Squad 2 ",
+  "author": "Squad 2",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kalinemaciel/projetoSquad2/issues"
@@ -23,5 +23,6 @@
     "ajv": "^8.6.3",
     "cypress": "^8.7.0",
     "faker": "^5.5.3"
-  }
+  },
+  "dependencies": {}
 }
