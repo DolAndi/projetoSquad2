@@ -1,15 +1,38 @@
 
 import faker from "faker"
 
-export default class Factory {
+export default class factory{
     
-    static gerarProduto() {
-
+    static UsuarioBody(){
+        return{
+            "nome": `${faker.name.firstName()} ${faker.name.lastName()}`,
+            "email": `${faker.internet.email()}`,
+            "password": faker.internet.password(),
+            "administrador": "true"
+        }
+    }
+    static UsuarioSemAdmin(){
+        return{
+            "nome": `${faker.name.firstName()} ${faker.name.lastName()}`,
+            "email": `${faker.internet.email()}`,
+            "password": `${faker.internet.password()}`,
+            "administrador": "false"
+        }
+    }
+    static UsuarioExistente(){
         return {
-            "nome": `${faker.commerce.product} ${faker.commerce.color()}`,
-            "preco": 920,
-            "descricao": "produto valioso",
-            "quantidade": 20
+            "nome": "Fulano da Silva",
+            "email": "beltrano@qa.com.br",
+            "password": "teste",
+            "administrador": "true"
+        }
+    }
+    static gerarProduto() {
+        return {
+        "nome": `${faker.commerce.product()} ${faker.commerce.color()} ${faker.commerce.productAdjective()}`,
+        "preco": faker.commerce.price,
+        "descricao": faker.commerce.productDescription(),
+        "quantidade": faker.datatype.number(),
         }
     }
     static produtoExistente() {

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import Factory from "../dynamics/factory.js"
+import Factory from '../../dynamics/factory'
 
 var bearer
 var idProduto
