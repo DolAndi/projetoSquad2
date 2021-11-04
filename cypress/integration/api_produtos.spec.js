@@ -23,8 +23,9 @@ describe("Testes da rota /produtos", () => {
             let produto = Factory.gerarProduto()
     
             cy.cadastrarProduto(bearer, produto).then(res => {
-                expect(res.status).to.be.equal(201);
+                expect(res.status).to.be.equal(201)
                 expect(res.body).has.property("message").equal("Cadastro realizado com sucesso")
+                expect(res.body).to.have.property('_id')
                 idProduto = res.body._id
             })
         })

@@ -29,7 +29,7 @@ export default class factory{
     static gerarProduto() {
         return {
         "nome": `${faker.commerce.product()} ${faker.commerce.color()} ${faker.commerce.productAdjective()}`,
-        "preco": faker.commerce.price,
+        "preco": faker.commerce.price(),
         "descricao": faker.commerce.productDescription(),
         "quantidade": faker.datatype.number(),
         }
