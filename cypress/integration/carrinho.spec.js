@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
 
-import Factory from '../../dynamics/factory'
+import Factory from '../dynamics/factory'
 
 var bearer
