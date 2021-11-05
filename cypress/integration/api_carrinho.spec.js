@@ -16,10 +16,9 @@ describe("Teste da rota /login para execução posterior da rota /produtos", () 
     })
 })
 
-describe('Testes na rota /carrinhho', () => {
+describe('Testes na rota /carrinhos', () => {
     it('Deve cadastrar carrinho corretamente', () => {
-        let carrinho = Factory.gerarCarrinho
-        cy.cadastrarCarrinho(bearer, carrinho).then(res =>{
+        cy.cadastrarCarrinho(bearer, produto).then(res =>{
             expect(res.status).to.be.equal(201)
             expect(res.body).to.have.property('message').equal('Cadastro realizado com sucesso')
         })
