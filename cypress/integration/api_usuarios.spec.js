@@ -39,5 +39,12 @@ describe('Testes na rota /usuarios', () => {
             expect(res.body).to.have.property('message').to.be.equal('Usuário não encontrado')
         })
     })
-    
+    it('Deve excluir usuario', () => {
+        cy.excluirUsuario(usuarioId).then(res =>{
+            expect(res.status).to.be.equal(200)
+            expect(res.body).to.have.property('message').equal('Registro excluído com sucesso')
+        })
+    })
 })
+
+//fazer a rota para editar usuario

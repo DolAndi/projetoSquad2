@@ -37,9 +37,9 @@ Cypress.Commands.add('buscarUsuarioId', (id) => {
         failOnStatusCode: false,
     })
 })
-Cypress.Commands.add('editarUsuario', (id) => {
+Cypress.Commands.add('excluirUsuario', (id) => {
     return cy.request({
-        method: 'PUT',
+        method: 'DELETE',
         url: `${Cypress.env('base_url')}/usuarios/${id}`,
         failOnStatusCode: false,
     })
@@ -77,5 +77,15 @@ Cypress.Commands.add("buscarProdutoPorId", (id) =>{
         method: "GET",
         url: `${Cypress.env("base_url")}/produtos/${id}`,
         failOnStatusCode: false
+    })
+})
+
+//CARRINHO
+Cypress.Commands.add("cadastrarCarrinho", (bearer, carrinho) => {
+    return cy.request({
+        method: "POST",
+        url: `${Cypress.env("base_url")}/carrinhos`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
     })
 })
