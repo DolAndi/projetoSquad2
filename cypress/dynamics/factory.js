@@ -1,7 +1,8 @@
 import faker from "faker"
 
 export default class factory{
-    
+
+    //USUÁRIO
     static UsuarioBody(){
         return{
             "nome": `${faker.name.firstName()} ${faker.name.lastName()}`,
@@ -31,6 +32,7 @@ export default class factory{
             "email": `${faker.internet.email()}`
         }
     }
+    //PRODUTOS
     static gerarProduto() {
         return {
         "nome": `${faker.commerce.product()} ${faker.commerce.color()} ${faker.commerce.productAdjective()}`,

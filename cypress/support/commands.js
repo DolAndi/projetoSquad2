@@ -37,6 +37,13 @@ Cypress.Commands.add('buscarUsuarioId', (id) => {
         failOnStatusCode: false,
     })
 })
+Cypress.Commands.add('excluirUsuario', (id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: `${Cypress.env('base_url')}/usuarios/${id}`,
+        failOnStatusCode: false,
+    })
+})
 Cypress.Commands.add('editarUsuario', (id) => {
     return cy.request({
         method: 'PUT',
@@ -80,6 +87,16 @@ Cypress.Commands.add("buscarProdutoPorId", (id) =>{
     })
 })
 
+//CARRINHOS
+Cypress.Commands.add('listarCarrinhos',() =>{
+    return cy.request({
+        method:'GET',
+        url:`${Cypress.env('base_url')}/carrinhos`,
+        failOnStatusCode: false
+    })
+}) 
+
+//VALIDAÇÃO DE CONTRATO
 Cypress.Commands.add("validarContrato", (res, schema, status) => {
     cy.fixture(`schema/${schema}/${status}.json`).then( schema => {
         const validate = ajv.compile(schema)
