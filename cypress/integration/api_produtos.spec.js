@@ -39,6 +39,24 @@ describe("Testes da rota /produtos", () => {
                 expect(res.status).to.be.equal(200);
             })
         })
+        it("Deve validar contrato sobre a requisição GET /produtos", () => {
+            cy.buscarProdutos().then( res => {
+                expect(res.status).to.be.equal(200)
+                cy.validarContrato(res, "get_produtos", 200).then(validacao => {
+                    expect(validacao).to.be.equal("Contrato validado!")
+                })
+            })
+        })
+        it("Deve validar contrato sobre a requisição POST /produtos", () =>{
+            let produto = Factory.gerarProduto(); let produtoExistente = Factory.produtoExistente();
+            
+            cy.cadastrarProduto(bearer, produto).then(res =>{
+                expect(res.status).to.be.equal(201)
+                cy.validarContrato(res, "post_produtos", 201).then(validacao =>{
+                    expect(validacao).to.be.equal("Contrato validado!")
+                })
+            })
+        })
     })
     describe("Deve efetuar os testes negativos da rota", () => {
         it("Deve falhar o cadastro do produto por ser existente, possuindo propriedade message e status code 400", () => {
@@ -68,6 +86,15 @@ describe("Testes da rota /produtos", () => {
                 expect(res.status).to.be.equal(400);
                 expect(res.body).has.property("nome").equal("nome é obrigatório")
             })
+        })
+        it("Deve validar contrato negativo sobre a requisição POST /produtos", () =>{
+            let produto = Factory.gerarProduto(); let produtoExistente = Factory.produtoExistente();
+            cy.cadastrarProduto(bearer, produtoExistente).then(res =>{
+                expect(res.status).to.be.equal(400);
+                cy.validarContrato(res, "post_produtos", 400).then(validacao =>{
+                    expect(validacao).to.be.equal("Contrato validado!")
+                })
+            }) 
         })
     })
 })

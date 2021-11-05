@@ -3,7 +3,7 @@
 var bearer
 
 describe("Testes da rota /login", () => {
-    describe("Deve efetuar o teste positivo da rota", () => {
+    describe("Deve efetuar os testes positivos da rota", () => {
         it("Deve validar o login com status code 200 e authorization", () => {
             cy.fixture("loginCredentials").then((user) => {
                 cy.logar(user.valido).then( res => {
@@ -13,6 +13,15 @@ describe("Testes da rota /login", () => {
                 })
             })
         })
+        it("Deve realizar teste de contrato sobre a requisição POST /login", () =>{
+            cy.fixture("loginCredentials").then(user => {
+                cy.logar(user.valido).then(res => {
+                    expect(res.status).to.be.equal(200);
+                cy.validarContrato(res, "post_login", 200).then(validacao =>{
+                    expect(validacao).to.be.equal("Contrato validado!")
+                })  })
+            })
+        })  
     })
     describe("Deve efetuar testes negativos da rota", () => {
         it("Deve efetuar uma falha em que o campo email não pode ficar em branco e status code 400", () => {

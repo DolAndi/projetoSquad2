@@ -79,3 +79,19 @@ Cypress.Commands.add("buscarProdutoPorId", (id) =>{
         failOnStatusCode: false
     })
 })
+
+Cypress.Commands.add("validarContrato", (res, schema, status) => {
+    cy.fixture(`schema/${schema}/${status}.json`).then( schema => {
+        const validate = ajv.compile(schema)
+        const valid = validate(res.body)
+        if(!valid){
+            var errors = ""
+            for(let each in validate.errors){
+                let err = validate.errors[each]
+                errors += `\n${err.instancePath} ${err.message}, but receive ${typeof err.data}`         
+            }
+        throw new Error("Contrato inválido, por favor verifique!" + errors)
+        }
+        return "Contrato validado!"
+    })
+})
