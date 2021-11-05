@@ -26,6 +26,11 @@ export default class factory{
             "administrador": "true"
         }
     }
+    static UsuarioEdit(){
+        return{
+            "email": `${faker.internet.email()}`
+        }
+    }
     static gerarProduto() {
         return {
         "nome": `${faker.commerce.product()} ${faker.commerce.color()} ${faker.commerce.productAdjective()}`,
