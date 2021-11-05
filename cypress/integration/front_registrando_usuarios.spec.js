@@ -7,18 +7,25 @@ import ServerestRegisterUser from "../pages/register_user.page"
 describe("Testes na rota cadastro de usuário", () => {
     beforeEach(() => {
         ServerestLogin.acessarServerest()
-    })
-
-    it("Cadastrando usuário aleatório", () => {
         ServerestRegisterUser.cadastrarUsuarioAleatório()
     })
 
-    it("Validando a URL após o usuário estar cadastrado", () => {
-        ServerestRegisterUser.validarUrlAposCadastroDeUsuario()
+    it("Validando url após cadastro", () => {
+       ServerestRegisterUser.validarUrl()
     })
 
-    it("Validar Mensagem de boas vindas após cadastro", () => {
-        ServerestRegisterUser.validarMsgBoasVindas()
+    /*it("Validando se a imagem da serverest está visível", () => {
+        ServerestRegisterUser.verifyIfImgIsVisible()
+    })*/
+}) 
+
+describe("Testes negativos na rota cadastro", () => {
+    beforeEach(() => {
+        ServerestLogin.acessarServerest()
+    })
+
+    it.only("validar usuario invalido", () => {
+        ServerestRegisterUser.cadastrarUsuarioAleatórioEInvalido()
     })
 
 })

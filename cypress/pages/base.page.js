@@ -48,5 +48,9 @@ export default class Base {
         cy.contains(text, {matchCase: false}).should("be.visible")
       }
 
+      /*static verifyIfImgIsVisible(img) {
+        cy.get(img).should("be.visible")
+      }*/
+
 
 }
