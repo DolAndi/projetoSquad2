@@ -47,10 +47,18 @@ export default class Base {
       static verifyIfTextIsVisible(text) {
         cy.contains(text, {matchCase: false}).should("be.visible")
       }
+// -------------------------------------------------------
 
-      /*static verifyIfImgIsVisible(img) {
-        cy.get(img).should("be.visible")
-      }*/
+      static verifica(text) {
+      cy.get(text).should("contain", `Bem Vindo`);
+    }
 
+    static verifyIfElementIsVisible(elemt){
+      cy.get(elemt).should("be.visible")
+    }
+
+    static validatePlaceholder(element, placeholder){
+      cy.get(element).should("have.attr", "placeholder", placeholder);
+    }
 
 }

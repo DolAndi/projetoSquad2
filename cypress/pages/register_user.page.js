@@ -13,26 +13,28 @@ const INP_PASSWORD = "[data-testid*=password]"
 const BTN_REGISTER = "[data-testid=cadastrar]"
 const BTN_ADMIN = "[data-testid=checkbox]"
 
-const IMG = ".imagem"
-
 
 
 export default class ServerestRegisterUser extends Base {
 
     static cadastrarUsuarioAleatório() {
+        const username = faker.internet.userName()
+        cy.wrap(username).as('name')
+
         super.clickOnElement(BTN_REGISTER_USER)
-        super.typeValue(INP_NAME, faker.internet.userName())
+        super.typeValue(INP_NAME, username)
         super.typeValue(INP_EMAIL, faker.internet.email())
         super.typeValue(INP_PASSWORD, faker.internet.password())
         super.clickOnElement(BTN_ADMIN)
         super.clickOnElement(BTN_REGISTER)
+        
     }
 
     static validarUrlAposCadastroDeUsuario(){
         super.validarUrl("/home")
     }
 
-    static validarMsgBoasVindas(){
+    static validarMsgCadastroRealizado(){
         super.verifyIfTextIsVisible("Cadastro realizado com sucesso")
     }
 
@@ -40,18 +42,14 @@ export default class ServerestRegisterUser extends Base {
         super.validarUrl("/admin/home")
     }
 
-    static cadastrarUsuarioAleatórioEInvalido(){
-        super.clickOnElement(BTN_REGISTER_USER)
-        super.typeValue(INP_NAME, "fulanoqa")
-        //super.typeValue(INP_EMAIL, "a")
-        super.typeValue(INP_PASSWORD, faker.internet.password())
-        super.clickOnElement(BTN_ADMIN)
-        super.clickOnElement(BTN_REGISTER)
+    static validarMsgBoasVindas(){
+        super.verifyIfTextIsVisible("Bem Vindo")
+    }
+
+    static validarMsgBoasVindasNome(){
+        cy.get("@name").then(name => {
+            super.verifyIfTextIsVisible(name)
+        })
     }
 
 }
-
-
-/*        super.typeValue(INP_NAME, faker.name.firstName())
-        super.typeValue(INP_EMAIL, faker.internet.email())
-        super.typeValue(INP_PASSWORD, faker.internet.password()) */

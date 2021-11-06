@@ -22,8 +22,13 @@ const INP_REGISTER_PASSWORD = "[data-testid=password]"
 const BTN_REGISTER_ADMIN = "#administrador"
 const BTN_USER = "[data-testid=cadastrarUsuario]"
 
+const TEXT_WELCOME = "[h1]"
 
-//const TXT_ERROR = `<span aria-hidden="true">×</span>`
+const IMG = ".imagem"
+const TXT_LOGIN = ".font-robot"
+const INP_LOGIN = "[data-testid=senha]"
+
+
 
 
 
@@ -33,14 +38,36 @@ export default class ServerestLogin extends Base {
         cy.visit("https://front.serverest.dev/login")
     }
 
-    /*static validarEmailInvalido(){
-        super.verifyIfElementExists(TXT_ERROR)
-    }*/
+
+    static preencherEmail(){
+        super.typeValue(INP_EMAIL, "fulano@qa.com")
+    }
+    static preencherSenha(){
+        super.typeValue(INP_PASSWORD, "teste")
+    }
+    static clicarBtEntrar(){
+        super.clickOnElement(BTN_ENTRAR)
+    }
+
+    static validarAlerta(text){
+        super.verifyIfTextIsVisible(text)
+    }
+
+    static validarComponentesLogin(){
+        super.verifyIfElementIsVisible(IMG)
+        super.verifyIfElementIsVisible(TXT_LOGIN)
+        super.verifyIfElementIsVisible(INP_REGISTER_EMAIL)
+        super.verifyIfElementIsVisible(INP_LOGIN)
+        super.validatePlaceholder(INP_REGISTER_EMAIL,"Digite seu email")
+        super.validatePlaceholder(INP_LOGIN,"Digite sua senha")
+    }
 
     static logar(){
-        super.typeValue(INP_EMAIL, "hackerman@qa.com")
+        cy.intercept("GET", `https://serverest.dev/usuarios`).as("Wait_load")
+        super.typeValue(INP_EMAIL, "fulano@qa.com")
         super.typeValue(INP_PASSWORD, "teste")
         super.clickOnElement(BTN_ENTRAR)
+        cy.wait('@Wait_load')
     }
 
     static validarUrl(){
@@ -67,8 +94,8 @@ export default class ServerestLogin extends Base {
         super.verifyIfElementExists(BTN_USER)
         super.clickOnElement(BTN_USER)
     }
-
-    /*static validarMsgBoasVindas(){
-        super.verifyIfTextIsVisible("Este é seu sistema para administrar seu ecommerce.")
-    }*/
+    
+    static validarTextos(){
+        super.validateElementText(TEXT_WELCOME)
+    }
 }

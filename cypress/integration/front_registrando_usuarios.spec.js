@@ -10,22 +10,11 @@ describe("Testes na rota cadastro de usuário", () => {
         ServerestRegisterUser.cadastrarUsuarioAleatório()
     })
 
-    it("Validando url após cadastro", () => {
-       ServerestRegisterUser.validarUrl()
+    it("Validando URL e mensagem de boas vindas", () => {
+        ServerestRegisterUser.validarMsgCadastroRealizado()
+        ServerestRegisterUser.validarUrl()
+        ServerestRegisterUser.validarMsgBoasVindas()
+        ServerestRegisterUser.validarMsgBoasVindasNome()
     })
 
-    /*it("Validando se a imagem da serverest está visível", () => {
-        ServerestRegisterUser.verifyIfImgIsVisible()
-    })*/
 }) 
-
-describe("Testes negativos na rota cadastro", () => {
-    beforeEach(() => {
-        ServerestLogin.acessarServerest()
-    })
-
-    it.only("validar usuario invalido", () => {
-        ServerestRegisterUser.cadastrarUsuarioAleatórioEInvalido()
-    })
-
-})

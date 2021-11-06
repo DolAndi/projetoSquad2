@@ -5,24 +5,27 @@ import ServerestLogin from "../pages/login.page"
 describe("Testes na rota login", () => {
     beforeEach(() => {
         ServerestLogin.acessarServerest()
-        ServerestLogin.logar()
     })
 
-
-    it("Validando URL após login", () => {
-        ServerestLogin.validarUrl()
+    it("Logar sem a senha", () => {
+        ServerestLogin.preencherEmail()
+        ServerestLogin.clicarBtEntrar()
+        ServerestLogin.validarAlerta("Password é obrigatório")
     })
 
-    it("Validando se os botões do cabeçalho estão visíveis", () => {
-        ServerestLogin.validarBotõesDoHeader()
+    it("Logar sem email", () => {
+        ServerestLogin.preencherSenha()
+        ServerestLogin.clicarBtEntrar()
+        ServerestLogin.validarAlerta("Email é obrigatório")
     })
 
-    it.only("Cadastrando usuário após estar logado - validar url", () => {
-        ServerestLogin.cadastrarUsuarioLogado()
+    it("Logar sem preencher campos", () => {
+        ServerestLogin.clicarBtEntrar()
+        ServerestLogin.validarAlerta("Password é obrigatório")
+        ServerestLogin.validarAlerta("Email é obrigatório")
     })
 
-    /*it("Validando mensagem de boas vindas Fulano da Silva", () => {
-        ServerestLogin.verifyIfTextIsVisible()
-    })*/
-
+    it("Validar componentes /login", () => {
+        ServerestLogin.validarComponentesLogin()
+    })
 })
