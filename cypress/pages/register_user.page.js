@@ -14,7 +14,6 @@ const BTN_REGISTER = "[data-testid=cadastrar]"
 const BTN_ADMIN = "[data-testid=checkbox]"
 
 
-
 export default class ServerestRegisterUser extends Base {
 
     static cadastrarUsuarioAleatório() {
@@ -52,4 +51,11 @@ export default class ServerestRegisterUser extends Base {
         })
     }
 
+    static validandoComponentes(){
+        super.verifyIfTextIsVisible("Funcionalidade de cadastro de usuários para ter acesso ao ecommerce.")
+        super.verifyIfTextIsVisible("Funcionalidade de listagem de usuários que estão cadastrados.")
+        super.verifyIfTextIsVisible("Funcionalidade de cadastro de produtos para ser utilizado no ecommerce.")
+        super.verifyIfTextIsVisible("Funcionalidade de listagem de produtos que estão cadastrados.")
+        super.verifyIfTextIsVisible("Funcionalidade de relatórios gerais do sistema de ecommerce.")
+    }
 }

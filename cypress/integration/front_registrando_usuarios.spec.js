@@ -10,11 +10,14 @@ describe("Testes na rota cadastro de usuário", () => {
         ServerestRegisterUser.cadastrarUsuarioAleatório()
     })
 
-    it("Validando URL e mensagem de boas vindas", () => {
+    it("Validando URL - mensagem de Cadastro realizado com sucesso e boas vindas", () => {
         ServerestRegisterUser.validarMsgCadastroRealizado()
         ServerestRegisterUser.validarUrl()
         ServerestRegisterUser.validarMsgBoasVindas()
         ServerestRegisterUser.validarMsgBoasVindasNome()
     })
 
+    it("Validando Textos dos componentes", () => {
+        ServerestRegisterUser.validandoComponentes()
+    })
 }) 
