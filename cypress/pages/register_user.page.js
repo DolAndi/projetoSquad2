@@ -14,7 +14,6 @@ const BTN_REGISTER = "[data-testid=cadastrar]"
 const BTN_ADMIN = "[data-testid=checkbox]"
 
 
-
 export default class ServerestRegisterUser extends Base {
 
     static cadastrarUsuarioAleatório() {
