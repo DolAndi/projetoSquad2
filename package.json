@@ -22,6 +22,7 @@
   "devDependencies": {
     "ajv": "^8.6.3",
     "cypress": "^8.7.0",
+    "cypress-file-upload": "^5.0.8",
     "faker": "^5.5.3"
   },
   "dependencies": {}
