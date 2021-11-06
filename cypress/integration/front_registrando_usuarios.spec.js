@@ -20,4 +20,9 @@ describe("Testes na rota cadastro de usuário", () => {
     it("Validando Textos dos componentes", () => {
         ServerestRegisterUser.validandoComponentes()
     })
+
+    it("Validando se o usuário cadastrado aparece na lista", () => {
+        ServerestRegisterUser.acessarListaUser()
+        ServerestRegisterUser.validaUsuarioCriado()
+    })
 }) 

@@ -2,6 +2,7 @@
 
 import Base from "./base.page";
 import faker from "faker"
+import factory from "../dynamics/factory"
 
 const INP_EMAIL = "[data-testid*=email]"
 const INP_PASSWORD = "[data-testid=senha]"
@@ -68,6 +69,23 @@ export default class ServerestLogin extends Base {
         super.typeValue(INP_PASSWORD, "teste")
         super.clickOnElement(BTN_ENTRAR)
         cy.wait('@Wait_load')
+    }
+
+    static logarViaApi() {
+        const user = factory.UsuarioBody()
+        cy.cadastrarUsuario(user)
+        cy.logar({
+            email: user.email,
+            password: user.password
+        }).then(logar => {
+            cy.window().then(window => {
+                cy.log(window)
+                window.localStorage.setItem("serverest/userPassword", user.password)
+                window.localStorage.setItem("serverest/userEmail", user.email)
+                window.localStorage.setItem("serverest/userToken", logar.body.authorization)
+                window.localStorage.setItem("serverest/userNome", user.nome)
+            })
+        })
     }
 
     static validarUrl(){
