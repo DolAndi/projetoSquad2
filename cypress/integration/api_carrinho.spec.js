@@ -15,7 +15,6 @@ describe("Teste da rota /login para execução posterior da rota /produtos", () 
         })
     })
 })
-
 describe('Testes na rota /carrinhos', () => {
     it('Deve listar carrinhos cadastrados', () => {
         cy.listarCarrinhos().then(res => {

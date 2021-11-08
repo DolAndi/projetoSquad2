@@ -29,7 +29,10 @@ export default class factory{
     }
     static UsuarioEdit(){
         return{
-            "email": `${faker.internet.email()}`
+            "nome": `${faker.name.firstName()} ${faker.name.lastName()}`,
+            "email": `${faker.internet.email()}`,
+            "password": faker.internet.password(),
+            "administrador": "true"
         }
     }
     //PRODUTOS
@@ -71,5 +74,13 @@ export default class factory{
             "descricao": "",
             "quantidade": 381
           }
+    }
+    static produtoEdit(){
+        return  {
+            "nome": `${faker.commerce.product()} ${faker.commerce.color()} ${faker.commerce.productAdjective()}`,
+            "preco": faker.commerce.price(),
+            "descricao": faker.commerce.productDescription(),
+            "quantidade": faker.datatype.number()
+        }
     }
 }
