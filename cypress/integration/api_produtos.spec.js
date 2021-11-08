@@ -57,6 +57,7 @@ describe("Testes da rota /produtos", () => {
                 })
             })
         }) 
+        //precisa mapear schema/put_produtos_id
         it("Deve editar o produto", () => {
             let body = Factory.produtoEdit()
             cy.editarProduto(idProduto, body, bearer).then(res => {
