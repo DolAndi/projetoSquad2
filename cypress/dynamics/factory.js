@@ -75,4 +75,12 @@ export default class factory{
             "quantidade": 381
           }
     }
+    static produtoEdit(){
+        return  {
+            "nome": `${faker.commerce.product()} ${faker.commerce.color()} ${faker.commerce.productAdjective()}`,
+            "preco": faker.commerce.price(),
+            "descricao": faker.commerce.productDescription(),
+            "quantidade": faker.datatype.number()
+        }
+    }
 }

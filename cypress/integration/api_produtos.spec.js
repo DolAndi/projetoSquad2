@@ -56,7 +56,18 @@ describe("Testes da rota /produtos", () => {
                     expect(validacao).to.be.equal("Contrato validado!")
                 })
             })
-        })
+        }) 
+        //precisa mapear schema/put_produtos_id
+        it("Deve editar o produto", () => {
+            let body = Factory.produtoEdit()
+            cy.editarProduto(idProduto, body, bearer).then(res => {
+                expect(res.status).to.be.equal(200)
+                expect(res.body).to.have.property('message').equal('Registro alterado com sucesso')
+            cy.validarContrato(res, "put_produtos_id", 200).then(validacao =>{
+                expect(validacao).to.be.equal("Contrato validado!")
+                })
+           })
+       })
     })
     describe("Deve efetuar os testes negativos da rota", () => {
         it("Deve falhar o cadastro do produto por ser existente, possuindo propriedade message e status code 400", () => {
@@ -101,12 +112,10 @@ describe("Testes da rota /produtos", () => {
             cy.fixture("loginCredentials").then((usuario) => {
                 cy.logar(usuario.invalido).then(res => {
                     bearer = res.body.authorization
-                    
                     cy.cadastrarProduto(bearer, produto).then (res => {
                         expect(res.statusCode === 401);
                         expect(res.body).to.have.property("message")
                         expect(res.body.message).to.be.equal("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais")
-    
                         cy.validarContrato(res, "post_produtos", 401).then( validacao => {
                             expect(validacao).to.be.equal("Contrato validado!")
                         })
@@ -114,6 +123,5 @@ describe("Testes da rota /produtos", () => {
                 })
             })
         })
-        
     })
 })
