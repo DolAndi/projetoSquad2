@@ -30,9 +30,6 @@ const TXT_LOGIN = ".font-robot"
 const INP_LOGIN = "[data-testid=senha]"
 
 
-
-
-
 export default class ServerestLogin extends Base {
 
     static acessarServerest(){
