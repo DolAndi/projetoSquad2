@@ -96,5 +96,24 @@ describe("Testes da rota /produtos", () => {
                 })
             }) 
         })
+        it("Deve realizar teste de inserção de Token inválido", () => {
+            let produto = Factory.gerarProduto()
+            cy.fixture("loginCredentials").then((usuario) => {
+                cy.logar(usuario.invalido).then(res => {
+                    bearer = res.body.authorization
+                    
+                    cy.cadastrarProduto(bearer, produto).then (res => {
+                        expect(res.statusCode === 401);
+                        expect(res.body).to.have.property("message")
+                        expect(res.body.message).to.be.equal("Token de acesso ausente, inválido, expirado ou usuário do token não existe mais")
+    
+                        cy.validarContrato(res, "post_produtos", 401).then( validacao => {
+                            expect(validacao).to.be.equal("Contrato validado!")
+                        })
+                    })
+                })
+            })
+        })
+        
     })
 })

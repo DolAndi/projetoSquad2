@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 var bearer
+import Factory from '../dynamics/factory'
 
 describe("Testes da rota /login", () => {
     describe("Deve efetuar os testes positivos da rota", () => {

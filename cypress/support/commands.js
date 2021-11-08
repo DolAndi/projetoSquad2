@@ -44,11 +44,12 @@ Cypress.Commands.add('excluirUsuario', (id) => {
         failOnStatusCode: false,
     })
 })
-Cypress.Commands.add('editarUsuario', (id) => {
+Cypress.Commands.add('editarUsuario', (id, body) => {
     return cy.request({
         method: 'PUT',
         url: `${Cypress.env('base_url')}/usuarios/${id}`,
         failOnStatusCode: false,
+        body: body
     })
 })
 

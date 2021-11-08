@@ -75,7 +75,8 @@ describe('Testes na rota /usuarios e validações de contrato', () => {
     })
 
    // it('Deve editar usuário', () => {
-      //  cy.editarUsuario(usuarioId).then(res => {
+       
+      //  cy.editarUsuario(usuarioId, body).then(res => {
         //   expect(res.status).to.be.equal(200)
           //  expect(res.body).to.have.property('message').equal('Registro alterado com sucesso')
        // })
