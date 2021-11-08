@@ -1,5 +1,18 @@
 {
     "env": {
         "base_url": "https://serverest.dev"
+    },
+    "chromeWebSecurity": false,
+    "video": false,
+    "reporter": "mochawesome",
+    "reporterOptions": {
+      "reportDir": "cypress/report/mochawesome-report",
+      "overwrite": false,
+      "html": false,
+      "json": true,
+      "timestamp": "yyyymmdd_HHMMss",
+      "reportTitle": "Relatório dos testes",
+      "cdn": true,
+      "charts": true
     }
 }
