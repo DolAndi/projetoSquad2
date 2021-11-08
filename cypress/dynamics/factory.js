@@ -29,6 +29,7 @@ export default class factory{
     }
     static UsuarioEdit(){
         return{
+            "nome": `${faker.name.firstName()} ${faker.name.lastName()}`,
             "email": `${faker.internet.email()}`
         }
     }
