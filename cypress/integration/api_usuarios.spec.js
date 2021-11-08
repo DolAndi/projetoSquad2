@@ -60,28 +60,52 @@ describe('Testes na rota /usuarios e validações de contrato', () => {
         cy.editarUsuario(usuarioId, body).then(res => {
             expect(res.status).to.be.equal(200)
             expect(res.body).to.have.property('message').equal('Registro alterado com sucesso')
-        cy.validarContrato(res, "put_usuarios_id", 200).then(validacao =>{
-            expect(validacao).to.be.equal("Contrato validado!")
+        cy.validarContrato(res, 'put_usuarios_id', 200).then(validacao =>{
+            expect(validacao).to.be.equal('Contrato validado!')
             })
        })
    })
+   it('Deve cadastrar usuário caso não seja encontrato usuário para editar', () =>{
+    let usuario = Factory.UsuarioBody()
+    let body = Factory.UsuarioEdit()
+
+       cy.editarUsuario(usuario, body).then(res => {
+            expect(res.status).to.be.equal(201)
+            expect(res.body).to.have.property('message').equal('Cadastro realizado com sucesso')
+            expect(res.body).to.have.property('_id')
+        cy.validarContrato(res, 'put_usuarios_id', 201).then(validacao =>{
+            expect(validacao).to.be.equal('Contrato validado!')
+            })
+        })
+   })
+   it('Deve dar erro ao editar usuário com dados já cadastrados', () => {
+    let body = Factory.UsuarioExistente()
+   
+    cy.editarUsuario(usuarioId, body).then(res => {
+        expect(res.status).to.be.equal(400)
+        expect(res.body).to.have.property('message').equal('Este email já está sendo usado')
+    cy.validarContrato(res, 'put_usuarios_id', 400).then(validacao =>{
+        expect(validacao).to.be.equal('Contrato validado!')
+        })
+   })
+})
     it('Deve excluir usuário', () => {
         cy.excluirUsuario(usuarioId).then(res =>{
             expect(res.status).to.be.equal(200)
             expect(res.body).to.have.property('message').equal('Registro excluído com sucesso')
-        cy.validarContrato(res, "delete_usuarios_id", 200).then(validacao =>{
-            expect(validacao).to.be.equal("Contrato validado!")
+        cy.validarContrato(res, 'delete_usuarios_id', 200).then(validacao =>{
+            expect(validacao).to.be.equal('Contrato validado!')
             })
         })
     })
-    //it('Deve dar erro excluir usuário com carrinho cadastrado', () => {
-       // cy.excluirUsuario().then(res => {
-         //  expect(res.status).to.be.equal(400)  //criar usuario com carrinho cadastrado
-          //  expect(res.body).to.have.property('message').equal('Não é permitido excluir usuário com carrinho cadastrado')
-           // expect(res.body).to.have.property('idCarrinho')
-      //  cy.validarContrato(res, "delete_usuarios_id", 400).then(validacao =>{
-           // expect(validacao).to.be.equal("Contrato validado!")
-           // })
-       // }) 
-    //})
+    it('Deve dar erro excluir usuário com carrinho cadastrado', () => {
+        cy.excluirUsuario().then(res => {
+           expect(res.status).to.be.equal(400)  //criar usuario com carrinho cadastrado
+            expect(res.body).to.have.property('message').equal('Não é permitido excluir usuário com carrinho cadastrado')
+            expect(res.body).to.have.property('idCarrinho')
+        cy.validarContrato(res, "delete_usuarios_id", 400).then(validacao =>{
+            expect(validacao).to.be.equal("Contrato validado!")
+            })
+        }) 
+    })
 })
