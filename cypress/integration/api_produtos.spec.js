@@ -5,23 +5,19 @@ import Factory from '../dynamics/factory'
 var bearer
 var idProduto
 
-describe("Teste da rota /login para execução posterior da rota /produtos", () => {
-    it("Deve validar o login com status code 200 e authorization", () => {
-        cy.fixture("loginCredentials").then((user) => {
-            cy.logar(user.valido).then( res => {
-                expect(res.status).to.equal(200)
-                expect(res.body).to.have.property("authorization")
-                bearer = res.body.authorization
-            })
-        })
-    })
-})
 describe("Testes da rota /produtos", () => {
     describe("Deve efetuar os testes positivos da rota", () => {
+        it("Deve validar o login com status code 200 e authorization", () => {
+            cy.fixture("loginCredentials").then((user) => {
+                cy.logar(user.valido).then( res => {
+                    expect(res.status).to.equal(200)
+                    expect(res.body).to.have.property("authorization")
+                    bearer = res.body.authorization
+                })
+            })
+        })
         it("Deve cadastrar produto corretamente possuindo status code 201 e exibir propriedade message", () => {
-
             let produto = Factory.gerarProduto()
-    
             cy.cadastrarProduto(bearer, produto).then(res => {
                 expect(res.status).to.be.equal(201)
                 expect(res.body).has.property("message").equal("Cadastro realizado com sucesso")
@@ -57,8 +53,7 @@ describe("Testes da rota /produtos", () => {
                 })
             })
         }) 
-        //precisa mapear schema/put_produtos_id
-        it("Deve editar o produto", () => {
+        it("Deve editar o produto PUT /produtos", () => {
             let body = Factory.produtoEdit()
             cy.editarProduto(idProduto, body, bearer).then(res => {
                 expect(res.status).to.be.equal(200)
