@@ -2,8 +2,6 @@
 
 import Factory from '../dynamics/factory'
 
-var bearer
-var carrinhoId
 
 describe("Teste da rota /login para execução posterior da rota /carrinhos", () => {
     it("Deve validar o login com status code 200 e authorization", () => {
@@ -11,38 +9,19 @@ describe("Teste da rota /login para execução posterior da rota /carrinhos", ()
             cy.logar(user.valido).then( res => {
                 expect(res.status).to.equal(200)
                 expect(res.body).to.have.property("authorization")
-                bearer = res.body.authorization
             })
         })
     })
 })
-describe('Testes na rota /carrinhos', () => {
-    let produto = Factory.produtosCarrinho()
-    
-    it('Deve cadastrar carrinho corretamente', () => {
-        cy.criarCarrinho(bearer,produto).then(res =>{
-            expect(res.status).to.be.equal(201)
-            expect(res.body).to.have.property('message').equal('Cadastro realizado com sucesso')
-            carrinhoId = res.body._id
-        })
-    })
-    it('Deve dar erro ao cadastrar carrinho sem produto', () => {
-        cy.criarCarrinho(bearer,produto).then(res => {
-            expect(res.status).to.be.equal(400)
-            expect(res.body).to.have.property('message').equal('Produto não encontrado')
-        })
-    })
+describe('Testes na rota /carrinhos e validações de contrato', () => {
     it('Deve listar carrinhos cadastrados', () => {
         cy.listarCarrinhos().then(res => {
             expect(res.status).to.be.equal(200)
             expect(res.body).to.have.property('quantidade')
             expect(res.body).to.have.property('carrinhos')
-        })
-    })
-    it('Deve excluir carrinho e concluir compra', () => {
-        cy.excluirCarrinho(carrinhoId, bearer).then(res => {
-            expect(res.status).to.be.equal(200)
-            expect(res.body).to.have.property('message').equal('')
+        cy.validarContrato(res, "get_carrinhos", 200).then(validacao =>{
+            expect(validacao).to.be.equal("Contrato validado!")
+            }) 
         })
     })
 })
