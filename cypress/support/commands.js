@@ -115,6 +115,14 @@ Cypress.Commands.add('listarCarrinhos',(bearer) =>{
         headers: {Authorization: bearer}
     }) 
 }) 
+Cypress.Commands.add('excluirCarrinho', (bearer,id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: `${Cypress.env('base_url')}/carrinhos/${id}`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
+    })
+})
 
 //VALIDAÇÃO DE CONTRATO
 Cypress.Commands.add("validarContrato", (res, schema, status) => {
