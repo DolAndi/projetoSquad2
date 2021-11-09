@@ -16,4 +16,8 @@ export default class ServerestListarProdutos extends Base {
         super.clickOnElement(BUTTON_LISTAR_PRODUTOS)
     }
 
+    static validarUrl(){
+        super.validarUrl("/admin/home")
+    }
+
 }

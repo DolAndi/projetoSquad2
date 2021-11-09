@@ -9,7 +9,8 @@ describe("Testar camada Listar Produto",() =>{
         ServerestLogin.logar()
     })
 
-    it('Funcionalidade do botão listar produtos',() =>{
+    it('Listar produtos e validar url',() =>{
+        ServerestListarProdutos.validarUrl()
         ServerestListarProdutos.clicar_botão_listar_produtos()
     })
 })
