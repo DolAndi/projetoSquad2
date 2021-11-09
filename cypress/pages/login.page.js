@@ -62,7 +62,7 @@ export default class ServerestLogin extends Base {
 
     static logar(){
         cy.intercept("GET", `https://serverest.dev/usuarios`).as("Wait_load")
-        super.typeValue(INP_EMAIL, "fulano@qa.com")
+        super.typeValue(INP_EMAIL, "hackerman@qa.com")
         super.typeValue(INP_PASSWORD, "teste")
         super.clickOnElement(BTN_ENTRAR)
         cy.wait('@Wait_load')
