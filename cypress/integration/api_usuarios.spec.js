@@ -98,14 +98,4 @@ describe('Testes na rota /usuarios e validações de contrato', () => {
             })
         })
     })
-    it('Deve dar erro excluir usuário com carrinho cadastrado', () => {
-        cy.excluirUsuario().then(res => {
-           expect(res.status).to.be.equal(400)  //criar usuario com carrinho cadastrado
-            expect(res.body).to.have.property('message').equal('Não é permitido excluir usuário com carrinho cadastrado')
-            expect(res.body).to.have.property('idCarrinho')
-        cy.validarContrato(res, "delete_usuarios_id", 400).then(validacao =>{
-            expect(validacao).to.be.equal("Contrato validado!")
-            })
-        }) 
-    })
 })
