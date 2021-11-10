@@ -1,0 +1,262 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T17:46:59.276Z",
+    "end": "2021-11-10T17:46:59.701Z",
+    "duration": 425,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "967bf1c3-550d-4662-a5f3-fb165f62837e",
+      "title": "",
+      "fullFile": "cypress/integration/api_login.spec.js",
+      "file": "cypress/integration/api_login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ade626ba-c121-4ebe-b6b0-2804632485e3",
+          "title": "Testes da rota /login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9f332a25-2516-46d7-933a-b7318b101646",
+              "title": "Deve efetuar os testes positivos da rota",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve validar o login com status code 200 e authorization",
+                  "fullTitle": "Testes da rota /login Deve efetuar os testes positivos da rota Deve validar o login com status code 200 e authorization",
+                  "timedOut": null,
+                  "duration": 78,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.valido).then(res => {\n    expect(res.status).to.equal(200);\n    expect(res.body).to.have.property(\"authorization\");\n    bearer = res.body.authorization;\n  });\n});",
+                  "err": {},
+                  "uuid": "202567d1-7591-4ae5-9e08-6f33052c2fd5",
+                  "parentUUID": "9f332a25-2516-46d7-933a-b7318b101646",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve realizar teste de contrato sobre a requisição POST /login",
+                  "fullTitle": "Testes da rota /login Deve efetuar os testes positivos da rota Deve realizar teste de contrato sobre a requisição POST /login",
+                  "timedOut": null,
+                  "duration": 81,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.valido).then(res => {\n    expect(res.status).to.be.equal(200);\n    cy.validarContrato(res, \"post_login\", 200).then(validacao => {\n      expect(validacao).to.be.equal(\"Contrato validado!\");\n    });\n  });\n});",
+                  "err": {},
+                  "uuid": "7808e736-15f6-4c16-afb9-b242e9585671",
+                  "parentUUID": "9f332a25-2516-46d7-933a-b7318b101646",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "202567d1-7591-4ae5-9e08-6f33052c2fd5",
+                "7808e736-15f6-4c16-afb9-b242e9585671"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 159,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "d6951947-4bca-4a49-b1d3-03f5876d0f23",
+              "title": "Deve efetuar testes negativos da rota",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve efetuar uma falha em que o campo email não pode ficar em branco e status code 400",
+                  "fullTitle": "Testes da rota /login Deve efetuar testes negativos da rota Deve efetuar uma falha em que o campo email não pode ficar em branco e status code 400",
+                  "timedOut": null,
+                  "duration": 50,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.emailEmBranco).then(res => {\n    expect(res.status).to.be.equal(400);\n    expect(res.body).has.property(\"email\").to.be.equal(\"email não pode ficar em branco\");\n  });\n});",
+                  "err": {},
+                  "uuid": "718bc0e3-1fcb-4edf-bd11-f16e4ce290b9",
+                  "parentUUID": "d6951947-4bca-4a49-b1d3-03f5876d0f23",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve efetuar uma falha em que o campo email é obrigatório e status code 400",
+                  "fullTitle": "Testes da rota /login Deve efetuar testes negativos da rota Deve efetuar uma falha em que o campo email é obrigatório e status code 400",
+                  "timedOut": null,
+                  "duration": 45,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.semCampoEmail).then(res => {\n    expect(res.status).to.be.equal(400);\n    expect(res.body).has.property(\"email\").to.be.equal(\"email é obrigatório\");\n  });\n});",
+                  "err": {},
+                  "uuid": "1dd64b76-90de-4015-8a44-6c135ccd50a4",
+                  "parentUUID": "d6951947-4bca-4a49-b1d3-03f5876d0f23",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve efetuar uma falha em que o campo senha(password) não pode ficar em branco e status code 400",
+                  "fullTitle": "Testes da rota /login Deve efetuar testes negativos da rota Deve efetuar uma falha em que o campo senha(password) não pode ficar em branco e status code 400",
+                  "timedOut": null,
+                  "duration": 49,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.senhaEmBranco).then(res => {\n    expect(res.status).to.be.equal(400);\n    expect(res.body).has.property('password').to.be.equal(\"password não pode ficar em branco\");\n  });\n});",
+                  "err": {},
+                  "uuid": "9ea2189d-8d78-4fb2-afa6-22435e471e7a",
+                  "parentUUID": "d6951947-4bca-4a49-b1d3-03f5876d0f23",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve efetuar uma falha em que o campo senha(password) é obrigatório e status code 400",
+                  "fullTitle": "Testes da rota /login Deve efetuar testes negativos da rota Deve efetuar uma falha em que o campo senha(password) é obrigatório e status code 400",
+                  "timedOut": null,
+                  "duration": 46,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.semCampoSenha).then(res => {\n    expect(res.status).to.be.equal(400);\n    expect(res.body).has.property(\"password\").to.be.equal(\"password é obrigatório\");\n  });\n});",
+                  "err": {},
+                  "uuid": "fdeda2b3-3a0f-465e-8ced-81541b885927",
+                  "parentUUID": "d6951947-4bca-4a49-b1d3-03f5876d0f23",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve efetuar falha em que os todos os campos são vazios, e status code 400",
+                  "fullTitle": "Testes da rota /login Deve efetuar testes negativos da rota Deve efetuar falha em que os todos os campos são vazios, e status code 400",
+                  "timedOut": null,
+                  "duration": 44,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.semCampos).then(res => {\n    expect(res.status).to.be.equal(400);\n    expect(res.body).has.property('password').to.be.equal('password é obrigatório');\n    expect(res.body).has.property('email').to.be.equal('email é obrigatório');\n  });\n});",
+                  "err": {},
+                  "uuid": "f062770b-0b31-4664-a69b-4847114bb900",
+                  "parentUUID": "d6951947-4bca-4a49-b1d3-03f5876d0f23",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "718bc0e3-1fcb-4edf-bd11-f16e4ce290b9",
+                "1dd64b76-90de-4015-8a44-6c135ccd50a4",
+                "9ea2189d-8d78-4fb2-afa6-22435e471e7a",
+                "fdeda2b3-3a0f-465e-8ced-81541b885927",
+                "f062770b-0b31-4664-a69b-4847114bb900"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 234,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório dos testes",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}
