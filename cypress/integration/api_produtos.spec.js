@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import Factory from '../dynamics/factory'
+import Factory from "../dynamics/factory"
 
 var bearer
 var idProduto
@@ -21,7 +21,7 @@ describe("Testes da rota /produtos", () => {
             cy.cadastrarProduto(bearer, produto).then(res => {
                 expect(res.status).to.be.equal(201)
                 expect(res.body).has.property("message").equal("Cadastro realizado com sucesso")
-                expect(res.body).to.have.property('_id')
+                expect(res.body).to.have.property("_id")
                 idProduto = res.body._id
         })
     })
@@ -44,7 +44,7 @@ describe("Testes da rota /produtos", () => {
         })
     })
         it("Deve validar contrato sobre a requisição POST /produtos", () =>{
-            let produto = Factory.gerarProduto(); let produtoExistente = Factory.produtoExistente();
+            let produto = Factory.gerarProduto();
             
             cy.cadastrarProduto(bearer, produto).then(res =>{
                 expect(res.status).to.be.equal(201)
@@ -94,7 +94,7 @@ describe("Testes da rota /produtos", () => {
         })
     })
         it("Deve validar contrato negativo sobre a requisição POST /produtos", () =>{
-            let produto = Factory.gerarProduto(); let produtoExistente = Factory.produtoExistente();
+            let produtoExistente = Factory.produtoExistente();
             cy.cadastrarProduto(bearer, produtoExistente).then(res =>{
                 expect(res.status).to.be.equal(400);
             cy.validarContrato(res, "post_produtos", 400).then(validacao =>{
