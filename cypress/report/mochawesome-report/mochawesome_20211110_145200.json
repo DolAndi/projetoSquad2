@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2021-11-10T17:46:54.937Z",
-    "end": "2021-11-10T17:46:55.539Z",
-    "duration": 602,
+    "start": "2021-11-10T17:52:00.071Z",
+    "end": "2021-11-10T17:52:00.362Z",
+    "duration": 291,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "9d689317-5b0e-44e4-8736-1cd7b0aeb7df",
+      "uuid": "e3372991-0805-4afd-b7bf-e2dc1786dd41",
       "title": "",
       "fullFile": "cypress/integration/api_carrinho.spec.js",
       "file": "cypress/integration/api_carrinho.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c3d7a43e-726c-43ea-8815-922e70c05378",
+          "uuid": "7c2c527b-55c0-40bf-85e5-948deddbeeae",
           "title": "Teste da rota /login para execução posterior da rota /carrinhos",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Deve validar o login com status code 200 e authorization",
               "fullTitle": "Teste da rota /login para execução posterior da rota /carrinhos Deve validar o login com status code 200 e authorization",
               "timedOut": null,
-              "duration": 540,
+              "duration": 230,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "cy.fixture(\"loginCredentials\").then(user => {\n  cy.logar(user.valido).then(res => {\n    expect(res.status).to.equal(200);\n    expect(res.body).to.have.property(\"authorization\");\n  });\n});",
               "err": {},
-              "uuid": "c75fa446-58af-4a63-835c-bef1aecf0a11",
-              "parentUUID": "c3d7a43e-726c-43ea-8815-922e70c05378",
+              "uuid": "11e6631f-2ef0-4bb5-ab19-903b41ae7ed2",
+              "parentUUID": "7c2c527b-55c0-40bf-85e5-948deddbeeae",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c75fa446-58af-4a63-835c-bef1aecf0a11"
+            "11e6631f-2ef0-4bb5-ab19-903b41ae7ed2"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 540,
+          "duration": 230,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "00da780a-c40e-4f30-bcb1-cf72ed44c951",
+          "uuid": "d523ca5e-eb5a-44ba-91ff-515e8653b63c",
           "title": "Testes na rota /carrinhos e validações de contrato",
           "fullFile": "",
           "file": "",
@@ -74,10 +74,10 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "Deve listar carrinhos cadastrados possuindo statys code 200e propriedade 'quantidade' e 'carrinhos'",
-              "fullTitle": "Testes na rota /carrinhos e validações de contrato Deve listar carrinhos cadastrados possuindo statys code 200e propriedade 'quantidade' e 'carrinhos'",
+              "title": "Deve listar carrinhos cadastrados possuindo statys code 200 e propriedade 'quantidade' e 'carrinhos'",
+              "fullTitle": "Testes na rota /carrinhos e validações de contrato Deve listar carrinhos cadastrados possuindo statys code 200 e propriedade 'quantidade' e 'carrinhos'",
               "timedOut": null,
-              "duration": 48,
+              "duration": 47,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -86,20 +86,20 @@
               "context": null,
               "code": "cy.listarCarrinhos().then(res => {\n  expect(res.status).to.be.equal(200);\n  expect(res.body).to.have.property(\"quantidade\");\n  expect(res.body).to.have.property(\"carrinhos\"); //cy.validarContrato(res, \"get_carrinhos\", 200).then(validacao =>{\n  // expect(validacao).to.be.equal(\"Contrato validado!\")\n  // }) \n});",
               "err": {},
-              "uuid": "6ffd0d80-76f9-45ed-ba14-528e4e72ec11",
-              "parentUUID": "00da780a-c40e-4f30-bcb1-cf72ed44c951",
+              "uuid": "17a1de9d-16a4-4778-8058-1c9e16d554b9",
+              "parentUUID": "d523ca5e-eb5a-44ba-91ff-515e8653b63c",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "6ffd0d80-76f9-45ed-ba14-528e4e72ec11"
+            "17a1de9d-16a4-4778-8058-1c9e16d554b9"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 48,
+          "duration": 47,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

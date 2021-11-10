@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-11-10T17:47:11.179Z",
-    "end": "2021-11-10T17:47:18.917Z",
-    "duration": 7738,
+    "start": "2021-11-10T17:52:15.958Z",
+    "end": "2021-11-10T17:52:23.708Z",
+    "duration": 7750,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "f95cdfa4-fc0d-43c8-964b-3f09992ee6a4",
+      "uuid": "eb1be5f6-9323-4e81-b9ec-6e60c5628085",
       "title": "",
       "fullFile": "cypress/integration/front_listar_produtos.spec.js",
       "file": "cypress/integration/front_listar_produtos.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b6f34896-6058-495d-a9fc-df9de5573209",
+          "uuid": "dd9d0d00-e2ea-440e-94ba-96764ae9c657",
           "title": "Testar camada Listar Produto",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Listar produtos e validar url",
               "fullTitle": "Testar camada Listar Produto Listar produtos e validar url",
               "timedOut": null,
-              "duration": 3774,
+              "duration": 4044,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "_listar_produtos.default.validarUrl();\n_listar_produtos.default.clicar_botão_listar_produtos();",
               "err": {},
-              "uuid": "84ac5b01-1807-4341-b5ab-19ae8d8897e5",
-              "parentUUID": "b6f34896-6058-495d-a9fc-df9de5573209",
+              "uuid": "86dffa8f-7766-4edd-925c-1bfc43fa643e",
+              "parentUUID": "dd9d0d00-e2ea-440e-94ba-96764ae9c657",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "84ac5b01-1807-4341-b5ab-19ae8d8897e5"
+            "86dffa8f-7766-4edd-925c-1bfc43fa643e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3774,
+          "duration": 4044,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

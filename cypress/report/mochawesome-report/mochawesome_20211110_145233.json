@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-11-10T17:47:22.747Z",
-    "end": "2021-11-10T17:47:28.991Z",
-    "duration": 6244,
+    "start": "2021-11-10T17:52:27.329Z",
+    "end": "2021-11-10T17:52:33.415Z",
+    "duration": 6086,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "0fe2e3d2-142b-425b-93e3-98d7f424f46b",
+      "uuid": "42fa454e-9a2b-499a-9f00-438857900ff5",
       "title": "",
       "fullFile": "cypress/integration/front_listar_usuarios.spec.js",
       "file": "cypress/integration/front_listar_usuarios.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "3bab1162-178f-4a4b-b26c-fe39c4713b0e",
+          "uuid": "8a7f2e3f-a959-418f-b741-a0334a6b147a",
           "title": "Teste na camada Listar Usuarios",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Listar Usuarios",
               "fullTitle": "Teste na camada Listar Usuarios Listar Usuarios",
               "timedOut": null,
-              "duration": 3296,
+              "duration": 3267,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "_listar_usuarios.default.clicar_botão_listar();\n_listar_usuarios.default.validarUrl();",
               "err": {},
-              "uuid": "07ebf32b-16d7-42dc-841d-a3c68dffee81",
-              "parentUUID": "3bab1162-178f-4a4b-b26c-fe39c4713b0e",
+              "uuid": "871b0294-69fe-4573-ac80-3eb6f464813a",
+              "parentUUID": "8a7f2e3f-a959-418f-b741-a0334a6b147a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "07ebf32b-16d7-42dc-841d-a3c68dffee81"
+            "871b0294-69fe-4573-ac80-3eb6f464813a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3296,
+          "duration": 3267,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

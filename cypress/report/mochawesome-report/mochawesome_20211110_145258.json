@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-11-10T17:47:46.024Z",
-    "end": "2021-11-10T17:47:53.899Z",
-    "duration": 7875,
+    "start": "2021-11-10T17:52:50.943Z",
+    "end": "2021-11-10T17:52:58.494Z",
+    "duration": 7551,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "2d12b5dd-fc43-49a1-846e-5fce65cfaeda",
+      "uuid": "3e1753f5-3bf0-43ba-a791-67a8616a2864",
       "title": "",
       "fullFile": "cypress/integration/front_registrando_produto.spec.js",
       "file": "cypress/integration/front_registrando_produto.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "fd0952e5-13c6-4fc2-8cf5-ddaec3995950",
+          "uuid": "1a939767-db23-4ca9-a44e-1df6024e2615",
           "title": "Testes na rota cadastro de produto",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Cadastrando produto e validando na lista",
               "fullTitle": "Testes na rota cadastro de produto Cadastrando produto e validando na lista",
               "timedOut": null,
-              "duration": 4908,
+              "duration": 4951,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "_register_product.default.cadastrarProdutoAleatório();\n_register_product.default.clicarBtnCadastrar();\n_register_product.default.validarProdutoCriado();",
               "err": {},
-              "uuid": "c5ebb6e6-204d-48af-9736-08dfc742ac73",
-              "parentUUID": "fd0952e5-13c6-4fc2-8cf5-ddaec3995950",
+              "uuid": "ce8a6429-0f11-43e7-9631-ed31265ad84e",
+              "parentUUID": "1a939767-db23-4ca9-a44e-1df6024e2615",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c5ebb6e6-204d-48af-9736-08dfc742ac73"
+            "ce8a6429-0f11-43e7-9631-ed31265ad84e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 4908,
+          "duration": 4951,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
