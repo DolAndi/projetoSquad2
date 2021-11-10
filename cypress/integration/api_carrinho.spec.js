@@ -13,12 +13,12 @@ describe("Teste da rota /login para execução posterior da rota /carrinhos", ()
         })
     })
 })
-describe('Testes na rota /carrinhos e validações de contrato', () => {
-    it('Deve listar carrinhos cadastrados', () => {
+describe("Testes na rota /carrinhos e validações de contrato", () => {
+    it("Deve listar carrinhos cadastrados possuindo statys code 200e propriedade 'quantidade' e 'carrinhos'", () => {
         cy.listarCarrinhos().then(res => {
             expect(res.status).to.be.equal(200)
-            expect(res.body).to.have.property('quantidade')
-            expect(res.body).to.have.property('carrinhos')
+            expect(res.body).to.have.property("quantidade")
+            expect(res.body).to.have.property("carrinhos")
         //cy.validarContrato(res, "get_carrinhos", 200).then(validacao =>{
            // expect(validacao).to.be.equal("Contrato validado!")
            // }) 
