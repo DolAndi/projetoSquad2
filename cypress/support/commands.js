@@ -63,7 +63,6 @@ Cypress.Commands.add("cadastrarProduto", (bearer, produto) =>{
         headers: {Authorization: bearer}
     })
 })
-
 Cypress.Commands.add("buscarProdutos", () =>{
     return cy.request({
         method: "GET",
@@ -71,7 +70,6 @@ Cypress.Commands.add("buscarProdutos", () =>{
         failOnStatusCode: false
     })
 })
-
 Cypress.Commands.add("buscarProdutoId", (id) =>{
     return cy.request({
         method: "GET",
@@ -79,7 +77,6 @@ Cypress.Commands.add("buscarProdutoId", (id) =>{
         failOnStatusCode: false
     })
 })
-
 Cypress.Commands.add("buscarProdutoPorId", (id) =>{
     return cy.request({
         method: "GET",
@@ -87,7 +84,6 @@ Cypress.Commands.add("buscarProdutoPorId", (id) =>{
         failOnStatusCode: false
     })
 })
-
 Cypress.Commands.add("editarProduto", (id, body, bearer) => {
     return cy.request({
         method: "PUT",
@@ -98,7 +94,16 @@ Cypress.Commands.add("editarProduto", (id, body, bearer) => {
     })
 })
 
-//CARRINHOS 
+//CARRINHOS
+Cypress.Commands.add('criarCarrinho', (bearer, produto) =>{
+    return cy.request({
+        method: "POST",
+        url: `${Cypress.env("base_url")}/carrinhos`,
+        failOnStatusCode: false,
+        body: produto,
+        headers: {Authorization: bearer} 
+    })
+}) 
 Cypress.Commands.add("listarCarrinhos",(bearer) =>{
     return cy.request({
         method: "GET",
@@ -106,6 +111,14 @@ Cypress.Commands.add("listarCarrinhos",(bearer) =>{
         failOnStatusCode: false,
         headers: {Authorization: bearer}
     }) 
+})
+Cypress.Commands.add('excluirCarrinho', (bearer,id) => {
+    return cy.request({
+        method: 'DELETE',
+        url: `${Cypress.env('base_url')}/carrinhos/${id}`,
+        failOnStatusCode: false,
+        headers: {Authorization: bearer}
+    })
 })
 
 //VALIDAÇÃO DE CONTRATO
