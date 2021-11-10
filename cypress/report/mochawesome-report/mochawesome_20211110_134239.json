@@ -1,0 +1,147 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T16:42:19.173Z",
+    "end": "2021-11-10T16:42:39.910Z",
+    "duration": 20737,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6a12b4bc-d55f-4417-a862-a46649cb70a5",
+      "title": "",
+      "fullFile": "cypress/integration/front_registrando_usuarios.spec.js",
+      "file": "cypress/integration/front_registrando_usuarios.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7bc56bee-b60d-4127-9931-363f4f448f62",
+          "title": "Testes na rota cadastro de usuário",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validando URL - mensagem de Cadastro realizado com sucesso e boas vindas",
+              "fullTitle": "Testes na rota cadastro de usuário Validando URL - mensagem de Cadastro realizado com sucesso e boas vindas",
+              "timedOut": null,
+              "duration": 6469,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_register_user.default.validarMsgCadastroRealizado();\n_register_user.default.validarUrl();\n_register_user.default.validarMsgBoasVindas();\n_register_user.default.validarMsgBoasVindasNome();",
+              "err": {},
+              "uuid": "398a9f57-733a-46db-bd58-2a2c1cfafe90",
+              "parentUUID": "7bc56bee-b60d-4127-9931-363f4f448f62",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validando Textos dos componentes",
+              "fullTitle": "Testes na rota cadastro de usuário Validando Textos dos componentes",
+              "timedOut": null,
+              "duration": 5842,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_register_user.default.validandoComponentes();",
+              "err": {},
+              "uuid": "a6ae76c6-7caf-4db1-8dbc-c5225c478295",
+              "parentUUID": "7bc56bee-b60d-4127-9931-363f4f448f62",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validando se o usuário cadastrado aparece na lista",
+              "fullTitle": "Testes na rota cadastro de usuário Validando se o usuário cadastrado aparece na lista",
+              "timedOut": null,
+              "duration": 5809,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_register_user.default.acessarListaUser();\n_register_user.default.validaUsuarioCriado();",
+              "err": {},
+              "uuid": "d61f378f-19d6-4bea-a193-9c4f3e1f3988",
+              "parentUUID": "7bc56bee-b60d-4127-9931-363f4f448f62",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "398a9f57-733a-46db-bd58-2a2c1cfafe90",
+            "a6ae76c6-7caf-4db1-8dbc-c5225c478295",
+            "d61f378f-19d6-4bea-a193-9c4f3e1f3988"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 18120,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório dos testes",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}

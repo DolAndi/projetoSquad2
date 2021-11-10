@@ -1,0 +1,166 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T16:41:54.002Z",
+    "end": "2021-11-10T16:42:02.527Z",
+    "duration": 8525,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "372c93fa-cf89-42a4-8ac8-dbc6ce8598cc",
+      "title": "",
+      "fullFile": "cypress/integration/front_login.spec.js",
+      "file": "cypress/integration/front_login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4e56c8e1-77b5-4c18-b889-9466303bd25e",
+          "title": "Testes na rota login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logar sem a senha",
+              "fullTitle": "Testes na rota login Logar sem a senha",
+              "timedOut": null,
+              "duration": 2413,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_login.default.preencherEmail();\n_login.default.clicarBtEntrar();\n_login.default.validarAlerta(\"Password é obrigatório\");",
+              "err": {},
+              "uuid": "fa74c13d-1dda-496e-b6fd-0af02878125d",
+              "parentUUID": "4e56c8e1-77b5-4c18-b889-9466303bd25e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logar sem email",
+              "fullTitle": "Testes na rota login Logar sem email",
+              "timedOut": null,
+              "duration": 1499,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_login.default.preencherSenha();\n_login.default.clicarBtEntrar();\n_login.default.validarAlerta(\"Email é obrigatório\");",
+              "err": {},
+              "uuid": "6c081a22-2d3d-4fdf-9305-173d38706204",
+              "parentUUID": "4e56c8e1-77b5-4c18-b889-9466303bd25e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logar sem preencher campos",
+              "fullTitle": "Testes na rota login Logar sem preencher campos",
+              "timedOut": null,
+              "duration": 992,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_login.default.clicarBtEntrar();\n_login.default.validarAlerta(\"Password é obrigatório\");\n_login.default.validarAlerta(\"Email é obrigatório\");",
+              "err": {},
+              "uuid": "62384e20-a0b7-4e2b-a3f9-c3a86fd1bf30",
+              "parentUUID": "4e56c8e1-77b5-4c18-b889-9466303bd25e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validar componentes /login",
+              "fullTitle": "Testes na rota login Validar componentes /login",
+              "timedOut": null,
+              "duration": 917,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_login.default.validarComponentesLogin();",
+              "err": {},
+              "uuid": "1dc06783-4028-4f9d-926e-d25ef0b74ca7",
+              "parentUUID": "4e56c8e1-77b5-4c18-b889-9466303bd25e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fa74c13d-1dda-496e-b6fd-0af02878125d",
+            "6c081a22-2d3d-4fdf-9305-173d38706204",
+            "62384e20-a0b7-4e2b-a3f9-c3a86fd1bf30",
+            "1dc06783-4028-4f9d-926e-d25ef0b74ca7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5821,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "yyyymmdd_HHMMss",
+        "reportTitle": "Relatório dos testes",
+        "cdn": true,
+        "charts": true
+      },
+      "version": "6.0.1"
+    }
+  }
+}
