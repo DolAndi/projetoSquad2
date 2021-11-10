@@ -38,7 +38,7 @@ export default class ServerestLogin extends Base {
 
 
     static preencherEmail(){
-        super.typeValue(INP_EMAIL, "fulano@qa.com")
+        super.typeValue(INP_EMAIL, "hackerman@qa.com")
     }
     static preencherSenha(){
         super.typeValue(INP_PASSWORD, "teste")
@@ -66,6 +66,11 @@ export default class ServerestLogin extends Base {
         super.typeValue(INP_PASSWORD, "teste")
         super.clickOnElement(BTN_ENTRAR)
         cy.wait('@Wait_load')
+    }
+
+    static clicarBtLogout() {
+        super.verifyIfElementExists(BTN_LOGOUT)
+        super.clickOnElement(BTN_LOGOUT)
     }
 
     static logarViaApi() {

@@ -7,6 +7,15 @@ describe("Testes na rota login", () => {
         ServerestLogin.acessarServerest()
     })
 
+    it("Logar com sucesso", () => {
+        ServerestLogin.preencherEmail()
+        ServerestLogin.preencherSenha()
+        ServerestLogin.clicarBtEntrar()
+        ServerestLogin.validarUrl('/admin/home')
+        ServerestLogin.clicarBtLogout()
+    })
+
+
     it("Logar sem a senha", () => {
         ServerestLogin.preencherEmail()
         ServerestLogin.clicarBtEntrar()
