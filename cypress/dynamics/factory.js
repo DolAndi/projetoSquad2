@@ -83,20 +83,4 @@ export default class factory{
             "quantidade": faker.datatype.number()
         }
     }
-    //CARRINHOS
-    static produtosCarrinho(){
-        return {
-            "produtos": [
-                {
-                  "idProduto": "",
-                  "quantidade": 1
-                },
-                {
-                  "idProduto": "",
-                  "quantidade": 1
-                }
-              ]
-        }   
-}
-
 }
