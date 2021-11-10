@@ -14,7 +14,7 @@ describe("Teste da rota /login para execução posterior da rota /carrinhos", ()
     })
 })
 describe("Testes na rota /carrinhos e validações de contrato", () => {
-    it("Deve listar carrinhos cadastrados possuindo statys code 200e propriedade 'quantidade' e 'carrinhos'", () => {
+    it("Deve listar carrinhos cadastrados possuindo statys code 200 e propriedade 'quantidade' e 'carrinhos'", () => {
         cy.listarCarrinhos().then(res => {
             expect(res.status).to.be.equal(200)
             expect(res.body).to.have.property("quantidade")
