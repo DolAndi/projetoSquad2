@@ -38,7 +38,7 @@ export default class ServerestLogin extends Base {
 
 
     static preencherEmail(){
-        super.typeValue(INP_EMAIL, "fulano@qa.com")
+        super.typeValue(INP_EMAIL, "hackerman@qa.com")
     }
     static preencherSenha(){
         super.typeValue(INP_PASSWORD, "teste")
@@ -68,6 +68,11 @@ export default class ServerestLogin extends Base {
         cy.wait('@Wait_load')
     }
 
+    static clicarBtLogout() {
+        super.verifyIfElementExists(BTN_LOGOUT)
+        super.clickOnElement(BTN_LOGOUT)
+    }
+
     static logarViaApi() {
         const user = factory.UsuarioBody()
         cy.cadastrarUsuario(user)
@@ -76,7 +81,6 @@ export default class ServerestLogin extends Base {
             password: user.password
         }).then(logar => {
             cy.window().then(window => {
-                cy.log(window)
                 window.localStorage.setItem("serverest/userPassword", user.password)
                 window.localStorage.setItem("serverest/userEmail", user.email)
                 window.localStorage.setItem("serverest/userToken", logar.body.authorization)
