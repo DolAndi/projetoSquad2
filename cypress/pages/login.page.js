@@ -76,7 +76,6 @@ export default class ServerestLogin extends Base {
             password: user.password
         }).then(logar => {
             cy.window().then(window => {
-                cy.log(window)
                 window.localStorage.setItem("serverest/userPassword", user.password)
                 window.localStorage.setItem("serverest/userEmail", user.email)
                 window.localStorage.setItem("serverest/userToken", logar.body.authorization)
